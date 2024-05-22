@@ -13,12 +13,13 @@ public class Eventi {
 	private int numeroPostiPrenotati = 0;
 	
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-	LocalDate dataEvento = LocalDate.parse(data, formatter);
+	LocalDate dataEvento;
 	LocalDate oggi = LocalDate.now();
 	
 	public Eventi (String titolo, String data, int numeroPostiTotale) {
 		this.titolo = titolo;
 		this.data = data;
+		this.dataEvento =  LocalDate.parse(data, formatter);
 		this.numeroPostiTotale = numeroPostiTotale; 
 		
 	        if (dataEvento.isBefore(oggi)) {
@@ -36,14 +37,20 @@ public class Eventi {
 	
 	public void prenota () {
 		
+		numeroPostiPrenotati ++;
+		
 		if (dataEvento.isBefore(oggi) || numeroPostiTotale > numeroPostiTotale) {
 			System.out.println("Non puoi prenotare");
-		} else {
-			numeroPostiPrenotati ++;
-		}
+		} 
 	}
 	
 	public void disdici () {
+		
+		numeroPostiPrenotati --;
+		
+		if (dataEvento.isBefore(oggi) || numeroPostiPrenotati <= 0) {
+			System.out.println("Non puoi prenotare");
+		} 
 		
 	}
 	
