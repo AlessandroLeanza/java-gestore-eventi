@@ -11,7 +11,7 @@ public class Test {
 		System.out.print("Inserisci il titolo dell'evento: ");
         String titoloEvento = scanner.nextLine();
 
-        System.out.print("Inserisci la data dell'evento: ");
+        System.out.print("Inserisci la data dell'evento nel formato dd-MM-yyyy: ");
         String dataEvento = scanner.nextLine();
 
         System.out.print("Inserisci il numero dei posti totale: ");

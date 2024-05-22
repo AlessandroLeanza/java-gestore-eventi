@@ -25,32 +25,30 @@ public class Eventi {
 	        if (dataEvento.isBefore(oggi)) {
 	            System.out.println("La data dell'evento è già passata");  
 	        } else {
-	        	System.out.println("Data corretta");
+	        	System.out.println("Data di oggi");
 	        }
 	        
 	        if (numeroPostiTotale <= 0) {
 		        System.out.println("Il numero di posti deve essere positivo."); 
-		    } else {
-		    	System.out.println("Posti inseriti correttamente");
-		    }
+		    } 
 	}
 	
 	public void prenota () {
-		
-		numeroPostiPrenotati ++;
-		
-		if (dataEvento.isBefore(oggi) || numeroPostiTotale > numeroPostiTotale) {
+			
+		if (dataEvento.isBefore(oggi) || (numeroPostiTotale - numeroPostiPrenotati) < 0) {
 			System.out.println("Non puoi prenotare");
-		} 
+		} else {
+			numeroPostiPrenotati ++;
+		}
 	}
 	
 	public void disdici () {
 		
-		numeroPostiPrenotati --;
-		
 		if (dataEvento.isBefore(oggi) || numeroPostiPrenotati <= 0) {
 			System.out.println("Non puoi prenotare");
-		} 
+		} else {
+			numeroPostiPrenotati --;			
+		}
 		
 	}
 	
