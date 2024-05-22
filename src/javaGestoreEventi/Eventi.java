@@ -1,24 +1,46 @@
 package javaGestoreEventi;
 
-import java.security.PublicKey;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Eventi {
 
 	private String titolo;
-	private int data;
+	private String data;
 	private int numeroPostiTotale;
 	private int numeroPostiPrenotati = 0;
 	
-	public Eventi (String titolo, int data, int numeroPostiTotale) {
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	LocalDate dataEvento = LocalDate.parse(data, formatter);
+	LocalDate oggi = LocalDate.now();
+	
+	public Eventi (String titolo, String data, int numeroPostiTotale) {
 		this.titolo = titolo;
 		this.data = data;
 		this.numeroPostiTotale = numeroPostiTotale; 
+		
+	        if (dataEvento.isBefore(oggi)) {
+	            System.out.println("La data dell'evento è già passata");  
+	        } else {
+	        	System.out.println("Data corretta");
+	        }
+	        
+	        if (numeroPostiTotale <= 0) {
+		        System.out.println("Il numero di posti deve essere positivo."); 
+		    } else {
+		    	System.out.println("Posti inseriti correttamente");
+		    }
 	}
 	
 	public void prenota () {
 		
+		if (dataEvento.isBefore(oggi) || numeroPostiTotale > numeroPostiTotale) {
+			System.out.println("Non puoi prenotare");
+		} else {
+			numeroPostiPrenotati ++;
+		}
 	}
 	
 	public void disdici () {
@@ -33,11 +55,11 @@ public class Eventi {
 		this.titolo = titolo;
 	}
 
-	public int getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(int data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
