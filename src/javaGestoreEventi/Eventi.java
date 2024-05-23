@@ -24,6 +24,8 @@ public class Eventi {
 		
 	        if (dataEvento.isBefore(oggi)) {
 	            System.out.println("La data dell'evento è già passata");  
+	        } else if (dataEvento.isAfter(oggi)) {
+	        	System.out.println("Data prossima all'evento");	        	
 	        } else {
 	        	System.out.println("Data di oggi");
 	        }
@@ -33,23 +35,22 @@ public class Eventi {
 		    } 
 	}
 	
-	public void prenota () {
+	public void prenota (int numeroPrenotazioni) {
 			
-		if (dataEvento.isBefore(oggi) || (numeroPostiTotale - numeroPostiPrenotati) < 0) {
+		if (dataEvento.isBefore(oggi) || numeroPostiPrenotati + numeroPrenotazioni > numeroPostiTotale) {
 			System.out.println("Non puoi prenotare");
 		} else {
-			numeroPostiPrenotati ++;
+			numeroPostiPrenotati += numeroPrenotazioni;
 		}
 	}
 	
-	public void disdici () {
+	public void disdici (int numeroDisdette) {
 		
-		if (dataEvento.isBefore(oggi) || numeroPostiPrenotati <= 0) {
-			System.out.println("Non puoi prenotare");
+		if (dataEvento.isBefore(oggi) || numeroPostiPrenotati < numeroDisdette) {
+			System.out.println("Non puoi disdire le prenotazioni");
 		} else {
-			numeroPostiPrenotati --;			
+			numeroPostiPrenotati -= numeroDisdette;			
 		}
-		
 	}
 	
 	public String getTitolo() {

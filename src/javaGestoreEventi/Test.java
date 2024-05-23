@@ -19,7 +19,32 @@ public class Test {
 
         Eventi eventi = new Eventi(titoloEvento, dataEvento, postiTotaleEvento);
         
-        System.out.println("Quante prenotazioni vuoi fare?");
-       eventi.getNumeroPostiPrenotati();
-	}
+        System.out.println("Vuoi effettuare delle prenotazioni? \n SI = 1 \n NO = 2 ");
+        int prenotazioni = scanner.nextInt();
+        
+        if(prenotazioni == 1) {
+        	System.out.println("Quanti posti vuoi prenotare?");
+        	int postiPrenotati = scanner.nextInt();
+        	eventi.prenota(postiPrenotati);
+        	System.out.println("Hai prenotato " + eventi.getNumeroPostiPrenotati() + " posti");	
+        } else if (prenotazioni == 2) {
+        	System.out.println("Nessuna prenotazione da effettuare");
+        }
+        int postiDispinibili = (eventi.getNumeroPostiTotale() - eventi.getNumeroPostiPrenotati());
+        System.out.println("Posti disponibili: " + postiDispinibili);
+        
+        System.out.println("Vuoi disdire qualche posto prenotato? \n SI = 1 \n NO = 2");
+        int disdette = scanner.nextInt();
+        
+        if (disdette == 1) {
+        	System.out.println("Quanti posti vuoi disdire?");
+        	int postiDisdetti = scanner.nextInt();
+        	eventi.disdici(postiDisdetti);
+        	System.out.println("Hai disdetto " + postiDisdetti + " posti");
+        	int postiDisponibili = postiDispinibili + postiDisdetti;
+        	System.out.println("Posti disponibili: " + postiDisponibili);
+        } else if (disdette == 2) {
+        	System.out.println("Nessun posto da disdire");
+        }
+    }
 }
