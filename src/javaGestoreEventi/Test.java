@@ -1,6 +1,10 @@
 package javaGestoreEventi;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Scanner;
+
+import javax.xml.crypto.Data;
 
 public class Test {
 
@@ -46,5 +50,9 @@ public class Test {
         } else if (disdette == 2) {
         	System.out.println("Nessun posto da disdire");
         }
+		LocalDateTime dataEOraConcerto = LocalDateTime.now();
+		double prezzoConcerto = 70.00;
+		Concerto concerto = new Concerto("Ultimo", "11-11-2022", 800, dataEOraConcerto, prezzoConcerto);
+		System.out.println(concerto.getDataOraFormattata() + " " + concerto.getTitolo() + " " + concerto.getPrezzoFormattato());
     }
 }
