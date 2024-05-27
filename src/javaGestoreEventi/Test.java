@@ -25,9 +25,11 @@ public class Test {
         int anno = Integer.parseInt(partiData[2]);
         if (giorno < 1 || giorno > 31) {
             System.out.println("Giorno inserito non valido.");
+            return;
         }
         if (mese < 1 || mese > 12) {
             System.out.println("Mese inserito non valido.");
+            return;
         }
         
         System.out.print("\nInserisci il numero dei posti totale: ");
