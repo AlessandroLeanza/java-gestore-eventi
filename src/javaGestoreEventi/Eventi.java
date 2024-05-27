@@ -21,9 +21,9 @@ public class Eventi {
 		this.numeroPostiTotale = numeroPostiTotale; 
 		
 	        if (dataEvento.isBefore(oggi)) {
-	            System.out.println("La data dell'evento è già passata");  
+//	            System.out.println("La data dell'evento è già passata");  
 	        } else if (dataEvento.isAfter(oggi)) {
-	        	System.out.println("Data prossima all'evento");	        	
+//	        	System.out.println("Data prossima all'evento");	        	
 	        } else {
 	        	System.out.println("Data di oggi");
 	        }

@@ -41,7 +41,7 @@ public class Concerto extends Eventi {
 	}
 	@Override
 	public String toString() {
-		return "Concerto getDataOraFormattata()=" + getDataOraFormattata() + ", getPrezzoFormattato()="
-				+ getPrezzoFormattato() + ", getTitolo()=" + getTitolo() + "";
+		return "\nData e ora attuale = " + getDataOraFormattata() + "\nPrezzo del biglietto = "
+				+ getPrezzoFormattato() + "\nTitolo del concerto = " + getTitolo() + "";
 	}
 }
